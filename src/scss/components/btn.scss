@@ -1,0 +1,150 @@
+/**
+ * 按钮
+ */
+.btn{
+	display: inline-block;
+}
+
+.btn-addattenion{
+	@extend .btn;
+	width: 1.05rem;
+	height: .42rem;
+	@include box-sizing(border-box);
+	border: 1px solid $c2;
+	border-radius: .03rem;
+	font-size: .27rem;
+	color: $c2;
+	line-height: .42rem;
+	text-align: center;
+}
+
+.btn-added-attenion{
+	@extend .btn;
+	width: 1.05rem;
+	height: .42rem;
+	@include box-sizing(border-box);
+	border: 1px solid $c4;
+	border-radius: .03rem;
+	font-size: .27rem;
+	color: $c4;
+	line-height: .42rem;
+	text-align: center;
+}
+
+.btn-addattenion-radius{
+	@extend .btn;
+	width: 1.02rem;
+	height: .36rem;
+	@include box-sizing(border-box);
+	border-radius: .1rem;
+	font-size: .28rem;
+	color: $c1;
+	line-height: .36rem;
+	text-align: center;
+	background-color: $c2;
+}
+
+.btn-get-coupons{
+    width: 1.2rem;
+    height: .36rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #000;
+    font-size: .25rem;
+    line-height: .36rem;
+    text-align: center;
+    border-radius: .02rem;
+    color: #000;
+}
+
+.btn-geted-coupons{
+    width: 1.2rem;
+    height: .36rem;
+    font-size: .25rem;
+    line-height: .36rem;
+    text-align: center;
+    border-radius: .02rem;
+    color: #fff;
+    background-color: #333333;
+}
+
+.btn-text{
+    font-size: .22rem;
+    color: #1c1c1e;
+    line-height: .21rem;
+    height: .21rem;
+}
+
+/**
+ * 多选按钮
+ */
+.btn-checkbox{
+    display: block;
+    width: 33.33333%;
+    /*height: 0.88rem;*/
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    /*line-height: 0.32rem;
+    border: 1px solid #949494;
+    color: #282828;
+    border-radius: 0.08rem;*/
+    /*display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;*/
+    /*padding: 0 0.2rem;*/
+    font-size: 0.22rem;
+
+    .btn-inner{
+	    text-align: center;
+	    /*padding: .1rem 0;*/
+	    background-image: url(data:image/NGf;base64,iVBORw0KGgoAAAANSUhEUgAAANIAAAAyCAYAAAAp3YXAAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDoxOWZjOWMzNi0yYzNlLTQ5NGMtOGI1NS1jMDM5NTgxNDg0MTciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6Rjk1MEIyNzA3NThFMTFFNjgxQUJCOTdBRDFCOUJCRjciIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6Rjk1MEIyNkY3NThFMTFFNjgxQUJCOTdBRDFCOUJCRjciIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDozZWUzMmM4NC1mZWM3LTQ0MjYtOTMyMy0yY2NiZTcwZDg1ZjciIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MTlmYzljMzYtMmMzZS00OTRjLThiNTUtYzAzOTU4MTQ4NDE3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+CDQ+rAAAAMNJREFUeNrs1VENwjAYhdGyTMSmhRnAAAaGLQwMGxioCDJkcJfMQEeyp3OSWwF/8qWXWuutlPLMxgK0WrO53yO6Z283gWZTtnT7TyQiOGZrZ+zcAf4nJBASCAmEBAgJhARCAiEBQgIhgZBASICQQEggJBASICQQEggJhAQICYQEQgIhAUICIYGQACGBkEBIICRASCAkEBIICRASCAmEBEIChARCAiGBkAAhwfkhrdnkFHDINfv2eR7ZKxvcBJp9svknwADJlw4wsS6RAwAAAABJRU5ErkJggg==);
+	    background-repeat: no-repeat;
+	    background-size: 100% 100%;
+	    background-position: left top;
+	    height: .42rem;
+	    -webkit-box-sizing:border-box;
+	    box-sizing:border-box;
+	    line-height: .43rem;
+	}
+
+	.btn-txt{
+	    display: block;
+	    /*line-height: 1;*/
+	    overflow: hidden;
+	    white-space: nowrap;
+	    text-overflow: ellipsis;
+	    padding: 0 .1rem;
+	}
+
+	&.disable{
+	    border: 1px solid #dcdcdc;
+	    color: #ddd;
+	}
+
+	&.selected .btn-inner{
+	    background: url(data:image/NGf;base64,iVBORw0KGgoAAAANSUhEUgAAANIAAAAyCAYAAAAp3YXAAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpEMEY2RjYyNDc1OTExMUU2ODFBQkI5N0FEMUI5QkJGNyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpEMEY2RjYyNTc1OTExMUU2ODFBQkI5N0FEMUI5QkJGNyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkQwRjZGNjIyNzU5MTExRTY4MUFCQjk3QUQxQjlCQkY3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkQwRjZGNjIzNzU5MTExRTY4MUFCQjk3QUQxQjlCQkY3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+l0sv0QAAAnlJREFUeNrs3EGITHEAx/Hf/+1/EKslkpVyECW1Dqx2a0Q5iLQONrlwUSRy2sOOFdGGsTtxs23thZuilJJyEVHK0UUOq5blZnMx5s17/u9xsLRm3sy/ZOf7qdfOvp3e1H/79v+/f68x5Z6+vZIm3NEpAFlNu+OY/RnRIXc8Y0yAzPLuuGPcjBS7F4bxABoWB4wB0DxCAggJICSAkAAQEkBIACEBhASAkABCAggJICQAhAQQEkBIQIuwDAHmiwUv7v+Tz/3We4AZCWhGpf9EiaUd0GRE8fuPawgJaD6iw4QEeIiIkAAPERES4CEiQgI8RERIgIeICAnwEBEhAR4iIiTAQ0QJnrUDfo/o4PFS/OFT3RExIwEeIiIkwENEhAR4iIiQgAwRBTu2y46ck9qXEBLQSERm80bZSwMK8t3KXTtLSEDmiNZ2KjfqZqJFC6XPMwqLNwkJyBTRyuWy1y9Iyzqkr2VVBoYVv5siJKDujYX2xbI3LqYzkqJI4flRxa/fsNkA/BFRzsoOnZHZtGH2G5PzVwoy69elv4alcUVPX869EcHQopVnIls4rWD/buXGi2o72u+KMG49Z9K4gm1d6Xuqt+4quvfwr9fmESG09HIuevBYZmuXzKoVajt5RKZ7i+LJKQV7dv74+6Mnqo7drnl9U+7pi5OfDDX+d3N9r13Ne6KOpbKDpxTs6p11Onr+SuHgZXeBsOZns7QDGwszXxQWriocGXM3Q9X0VLKpEA4V64qIpR2I6NcZyN0HVd5OyrolXqVQTLe768XSDvNyadfss3NZsbRDy89EvkKadkee4QcRNSxKlnb73IsJd6zm3wBkluxODH8XYAB/2g5txptS0gAAAABJRU5ErkJggg==) no-repeat;
+	    background-position: left top;
+	    background-size: 100% 100%;
+	    color: #f9384e;
+	}
+}
+
+.btn-comfirm-red{
+    height: .61rem;
+    width: 100%;
+    background-color: #f9384e;
+    text-align: center;
+    color: #fff;
+    font-size: .25rem;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+}

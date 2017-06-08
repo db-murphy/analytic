@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>配置文件解析示例</title>
+	<script type="text/javascript" src="../build/javascripts/analytic.js"></script>
+	<script type="text/javascript" src="zepto.js"></script>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.zf-userdefined{
+			position: relative;
+			overflow: hidden;
+		}
+		.zf-module{
+			overflow: hidden;
+			position: absolute;
+		}
+		.zf-img{
+			background: url(http://static.360buyimg.com/shangou/redm/m-new/public/dist/v4.0.9/images/gd_common_default.png) no-repeat center center;
+			background-size: 30% auto;
+		}
+		.zf-img img{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+		}
+		.zf-tick{
+            height: 48px;
+            text-align: center;
+            font-size: 0;
+            width: 750px;
+        }
+        .zf-tick span{
+            display: inline-block;
+            vertical-align: bottom;
+        }
+        .zf-tick .num{
+            width: 30px;
+            background-color: #000;
+            border-radius: 4px;
+            text-align: center;
+            line-height: 48px;
+            color: #fff;
+            font-size: 37px;
+        }
+        .zf-tick .txt{
+            color: #fff;
+            font-size: 21px;
+            line-height: 48px;
+            height: 48px;
+            width: 25px;
+        }
+        .zf-tick .num.ms{
+            background-color: #000;
+            color: #fff;
+        }
+        .zf-tick .one{
+            margin-right: 2px;
+        }
+	</style>
+</head>
+<body>
+	<div><script>Analytic({"fileName":"test","id":"abc","width":750,"height":1000,"scale":1,"modules":[{"id":"1486817198130","type":"picture","moduleName":"Picture","index":1,"width":770.6666666666666,"height":578,"left":-17,"top":-86,"naturalWidth":1024,"naturalHeight":768,"imgUrl":"http://127.0.0.1:3100/uploadFile/2Zo30wTTp6QknguAoCq1GZaI.jpeg","lazyLoad":true,"loading":false,"fixScale":true},{"id":"1486817247017","type":"picture","moduleName":"Picture","index":2,"width":485.7644991212654,"height":691,"left":-35,"top":492,"naturalWidth":800,"naturalHeight":1138,"imgUrl":"http://127.0.0.1:3100/uploadFile/WOwwZGcKF9KNiWCv2F3pn0Du.jpeg","lazyLoad":true,"loading":false,"fixScale":true},{"id":"1486817276970","type":"picture","moduleName":"Picture","index":3,"width":569,"height":809.4025,"left":449,"top":490,"naturalWidth":800,"naturalHeight":1138,"imgUrl":"http://127.0.0.1:3100/uploadFile/0U1ggXkat4w8Aec9FFT8ItxF.jpeg","lazyLoad":true,"loading":false,"fixScale":true},{"id":"1486817303233","type":"mapArea","moduleName":"MapArea","index":4,"width":92,"height":61,"left":292,"top":255,"naturalWidth":500,"naturalHeight":300,"fixScale":false,"href":"http://baidu.com","newTab":false},{"id":"1486817345463","type":"tick","moduleName":"Tick","index":6,"width":500,"height":48,"left":120,"top":393,"naturalWidth":500,"naturalHeight":48,"fixScale":true,"endTime":1487076547204,"numberDouble":true,"showMsec":true},{"id":"1486817352776","type":"tick","moduleName":"Tick","index":7,"width":500,"height":48,"left":157,"top":605,"naturalWidth":500,"naturalHeight":48,"fixScale":true,"endTime":1487594959282,"numberDouble":true,"showMsec":false}],"fileBg":{"isTransport":false,"bgColor":"#fff","R":255,"G":255,"B":255},"currentModuleId":"1486817326885","history":[],"fileSizeOverflow":true})</script></div>
+</body>
+<script type="text/javascript">
+	var lazy = {
+		init: function(opt) {
+	        var that = this;
+	        var op = {
+	            anim: true
+	        };
+	        $.extend(op, opt);
+	        this.op = op;
+	        return that.img.init(op);
+	    },
+
+	    img_each: function(img_lazy) {
+	    	var _this = this;
+
+	    	img_lazy.each(function(index, node) {
+	            if (!$(this).attr('data-layzr')) {
+	                return;
+	            }
+
+	            if (!_this.inViewport(this)) {
+	            	return
+	            }
+
+	            _this.act(this);
+	        });
+	    },
+
+	    dataEach: function(dataItem) {
+	         var _this = this;
+
+	        dataItem.each(function(index, node) {
+	            if (!$(this).attr('data-xhr-layzr')) {
+	                return;
+	            }
+
+	            if (!_this.inViewport(this)) {
+	                return
+	            }
+
+	            _this.op.loadData && _this.op.loadData($(this));
+	        });
+	    },
+
+	    act: function(_self) {
+	    	var $_self = $(_self);
+	    	var _this = this;
+
+	        if ($_self.attr('loaded')) {
+	            return;
+	        }
+	        var img = new Image(), original = $_self.attr('data-layzr');
+
+	        if(_this.op.srcTransform && _this.op.srcTransform(original, _self)) {
+	        	original = _this.op.srcTransform(original, _self);
+	        }
+
+	        img.onload = function() {
+	            $_self.attr('src', original).removeAttr('data-layzr');
+	            _this.op.load_sucess && _this.op.load_sucess(_self, true, img);
+	        }
+	        img.onerror = function() {
+	        	_this.op.load_sucess && _this.op.load_sucess(_self, false, img);
+	        }
+
+	        original && (img.src = original);
+	        $_self.attr('loaded', true);
+	    },
+
+	    inViewport: function(el) {
+	    	var top = window.pageYOffset - 0;
+	        var btm = window.pageYOffset + window.innerHeight + 0;
+	        var parent = $(el).closest('.zf-userdefined');
+	        var elTop = $(el).offset().top - parent.offset().top;
+	        var elBottom =  elTop + $(el).height();
+
+	        return elTop <= btm || elBottom >= top;
+	    },
+
+	    refreshImg: function() {
+	    	this.img.imgs = $('img[data-layzr]');
+	    	this.img_each(this.img.imgs);
+	    },
+
+	    img: {
+	    	imgs: $('img[data-layzr]'),
+	        dataItem: $('*[data-xhr-layzr]'),
+	        init: function(n) {
+	            var _this = this;
+	            var lazyScrollTimer = null;
+
+	            $(window).bind('scroll', function() {
+	            	clearTimeout(lazyScrollTimer);
+	            	lazyScrollTimer = setTimeout(function() {
+	            		lazy.img_each(_this.imgs);
+	                    lazy.dataEach(_this.dataItem);
+	            	}, 300);
+	            });
+
+	            lazy.img_each(_this.imgs);
+	            lazy.dataEach(_this.dataItem);
+	            return lazy;
+	        }
+	    }
+	}
+
+	lazy.init({
+		loadData: function(dom) {
+			$(dom).find('img').attr('src', $(dom).find('img').attr('data-src'));
+		}
+	});
+</script>
+</html>

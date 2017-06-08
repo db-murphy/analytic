@@ -1,0 +1,47 @@
+.new-user-filter{
+	font-size: .27rem;
+
+	ul{
+		@include clearfix();
+
+		li{
+			width: 33.3333333%;
+			float: left;
+			line-height: 1;
+			text-align: center;
+			background: url(../images/filterline.jpg) no-repeat right top;
+			background-size: auto 100%;
+
+			&:last-child{
+				background: none;
+			}
+
+			&.active{
+				.txt{
+					color: #f9384e;
+				}
+			}
+			
+			.txt{
+				display: inline-block;
+				padding-right: .34rem;
+				color: #6d6d6d;
+				position: relative;
+
+				.icon-sort{
+					position: absolute;
+					right: 0;
+					top: 50%;
+					@include translate(0, -50%);
+				}
+
+				.icon-filter{
+					position: absolute;
+					right: 0;
+					top: 50%;
+					@include translate(0, -50%);
+				}
+			}
+		}
+	}
+}

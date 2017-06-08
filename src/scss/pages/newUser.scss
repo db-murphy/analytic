@@ -1,0 +1,52 @@
+@import '../variable/color';
+@import '../mixins/all-mixin';
+@import '../layout/full_screen';
+
+// 页面布局
+@import '../layout/width_640';
+
+// 页面滚动模拟
+@import '../layout/animaScroll';
+
+// 轮播图模块
+@import '../modules/indexSlider';
+
+//新人专享说明文字
+@import '../modules/newUserMsg';
+
+//新人专享一级筛选
+@import '../modules/newUserFilter';
+
+//新人专享二级筛选
+@import '../modules/newUserFiterSec';
+
+// 筛选模态
+@import '../modules/filterModal';
+
+// 商品列表
+@import '../modules/gdsList';
+
+// 尾部闪购logo
+@import '../modules/footerLogo';
+
+// 价格说明
+@import '../modules/priceMsg';
+
+// 尾部广告
+@import '../modules/adver';
+
+// 回到顶部按钮
+@import '../modules/goTop';
+
+// 回到顶部按钮pad适配
+@import '../modules/goTopForPad';
+
+.filter-box{
+	&.fix{
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0;
+		z-index: 10;
+	}
+}

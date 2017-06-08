@@ -1,0 +1,63 @@
+/**
+ * 新人专享商品列表
+ */
+.gds-list{
+	@include clearfix();
+
+	li{
+		width: 50%;
+		float: left;
+		padding-right: .08rem;
+		@include box-sizing(border-box);
+
+		.gds-img{
+			height: 3.072rem;
+			position: relative;
+
+			.icon-new-tag{
+				position: absolute;
+				left: .21rem;
+				top: 0;
+			}
+
+			&.dry-up:after {
+			    position: absolute;
+			    width: 1rem;
+			    height: 1rem;
+			    text-align: center;
+			    line-height: 1rem;
+			    font-size: .24rem;
+			    background: rgba(0,0,0,.6);
+			    color: #fff;
+			    left: 50%;
+			    top: 50%;
+			    -webkit-transform: translate(-50%,-50%);
+			    content: '已抢光';
+			    border-radius: 50%;
+			}
+		}
+
+		.price{
+			@include clearfix();
+			padding: .15rem .27rem;
+			line-height: 1;
+
+			.new{
+				color: #c81522;
+				font-size: .22rem;
+			}
+
+			.old{
+				font-size: .21rem;
+				color: #6d6d6d;
+			}
+		}
+
+		.name{
+			color: #6d6d6d;
+			font-size: .22rem;
+			padding: 0 .27rem .13rem;
+			height: .47rem;
+		}
+	}
+}

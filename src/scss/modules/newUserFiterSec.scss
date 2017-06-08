@@ -1,0 +1,37 @@
+.newuser-filter-sec{
+	height: .51rem;
+	@include clearfix();
+	@include box-shadow(0 .01rem .06rem #f2f2f2);
+
+	li{
+		float: left;
+		width: auto;
+		height: 100%;
+		padding: 0 .23rem;
+
+		&.active{
+			.active-slider{
+				display: block;
+			}
+		}
+
+		a{
+			display: block;
+			height: 100%;
+			line-height: .51rem;
+			color: #949493;
+			font-size: .22rem;
+			position: relative;
+
+			.active-slider{
+				position: absolute;
+			    height: 2px;
+			    background: #c81522;
+			    bottom: 0;
+			    left: 0;
+			    width: 100%;
+			    display: none;
+			}
+		}
+	}
+}
